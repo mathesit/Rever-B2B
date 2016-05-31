@@ -1,0 +1,61 @@
+{
+  "project_info": {
+    "project_number": "745002556840",
+    "project_id": "rever-b2b"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745002556840:android:de159bf2ec76e28f",
+        "android_client_info": {
+          "package_name": "com.yarraa.b2b"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIVyxKDbvFBFem7EwRWuIc3-ojUsYz9es"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745002556840:android:f26f8d0065e91b66",
+        "android_client_info": {
+          "package_name": "com.rever.rever_b2b"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIVyxKDbvFBFem7EwRWuIc3-ojUsYz9es"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

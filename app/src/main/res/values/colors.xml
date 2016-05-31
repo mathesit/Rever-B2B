@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="titlebar_bg">#E2E2E4</color>
+    <color name="login_bg">#F5F5F5</color>
+    <color name="welcome_bg">#2A9EC0</color>
+    <color name="login">#097FA2</color>
+    <color name="userpwd_bg">#EBEBEB</color>
+    <color name="titlebar_background">#F7F7F7</color>
+    <color name="line_color">#C8C7CC</color>
+</resources>

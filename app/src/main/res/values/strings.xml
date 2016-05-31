@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Rever-B2B</string>
+    <string name="action_settings">Settings</string>
+    <string name="welcome">WELCOME</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="service_request">Service\nRequest</string>
+    <string name="jobs">Jobs</string>
+    <string name="quotations">Quotations</string>
+    <string name="reports">Reports</string>
+    <string name="logout">Logout</string>
+    <string name="stock_balance">Stock Balance</string>
+    <string name="pending_quotation">PENDING QUOTATION</string>
+    <string name="case_logs">CASE LOGS</string>
+    <string name="tot_serv_req">TOTAL SERVICE REQUEST</string>
+    <string name="alert">Alert</string>
+    <string name="product_type">Product Type</string>
+    <string name="brand">Brand</string>
+    <string name="product">Product</string>
+    <string name="model">Model</string>
+    <string name="failures">Failures</string>
+    <string name="description">Description</string>
+    <string name="top5plans">Top 5 Plans</string>
+    <string name="selCriteria">Select Criteria</string>
+    <string name="selFactor">Select factor</string>
+    <string name="selRangeType">Select range type</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="customizeReport">Customize Your Report</string>
+    <string name="genReport">GENERATE REPORT</string>
+    <string name="in">IN</string>
+    <string name="out">OUT</string>
+    <string name="all">ALL</string>
+</resources>
