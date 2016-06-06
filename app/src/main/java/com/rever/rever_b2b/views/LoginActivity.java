@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.rever.rever_b2b.R;
 import com.rever.rever_b2b.utils.MasterCache;
 import com.rever.rever_b2b.utils.NetUtils;
+import com.rever.rever_b2b.utils.SharedPreferenceManager;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -44,9 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         edtUser = (EditText)findViewById(R.id.edtUserInLogin);
         edtPwd = (EditText)findViewById(R.id.edtPwdInLogin);
         btnLogin = (Button)findViewById(R.id.btnLoginInLogin);
-//        edtUser.setText("challenger_service@yarraa.com");
-
-        edtUser.setText("ssewadmin@starshield.sg");
+        edtUser.setText("challenger_service@yarraa.com");
+    //    edtUser.setText("ssewadmin@starshield.sg");
         edtPwd.setText("123@Service");
     }
 
@@ -87,6 +87,12 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Log.i("myLog", "Response:" + result);
             if(MasterCache.userId.size()>0) {
+                int userId = MasterCache.userId.get(0);
+                ReverApplication.userId = userId;
+                String userType = MasterCache.userType.get(userId);
+                String sessionToken = MasterCache.userSessionToken.get(userId);
+                SharedPreferenceManager.setString(SharedPreferenceManager.SESSION_TOKEN, sessionToken);
+                SharedPreferenceManager.setString(SharedPreferenceManager.USER_TYPE, userType);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();

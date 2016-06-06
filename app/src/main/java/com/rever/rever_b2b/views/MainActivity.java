@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,12 +17,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.rever.rever_b2b.R;
 import com.rever.rever_b2b.gcm.QuickstartPreferences;
 import com.rever.rever_b2b.gcm.RegistrationIntentService;
+
+import org.w3c.dom.Text;
+
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 
 /**
@@ -30,8 +36,10 @@ import com.rever.rever_b2b.gcm.RegistrationIntentService;
 public class MainActivity extends AppCompatActivity {
     private LinearLayout linearQuotation, linearServiceReq, linearReports, linearDashboard, linearJobs, linearFragment;
     private ImageView imgDashboard, imgServReq, imgQuotation, imgJobs, imgReports;
+    private TextView txtDashboard, txtServReq, txtQuotation, txtJobs, txtReports;
     private BroadcastReceiver mRegistrationBroadcastReceiver;
     private boolean isReceiverRegistered;
+    private String userType;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
     @Override
@@ -40,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        userType = ReverApplication.getUserType();
         //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
         //toolbar.setNavigationIcon(R.drawable.logo);
@@ -51,9 +60,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
     }
-
 
     @Override
     protected void onResume() {
@@ -76,14 +83,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
     private void initViews(){
         imgDashboard = (ImageView)findViewById(R.id.imgDashboardInMain);
         imgServReq = (ImageView)findViewById(R.id.imgServReqInMain);
         imgQuotation = (ImageView)findViewById(R.id.imgQuotationsInMain);
         imgJobs = (ImageView)findViewById(R.id.imgJobsInMain);
         imgReports = (ImageView)findViewById(R.id.imgReportsInMain);
+        txtServReq = (TextView)findViewById(R.id.txtServReqInMain);
+        txtJobs = (TextView)findViewById(R.id.txtJobsInMain);
+        txtDashboard = (TextView)findViewById(R.id.txtDashboardInMain);
+        txtQuotation = (TextView)findViewById(R.id.txtQuotationsInMain);
+        txtReports = (TextView)findViewById(R.id.txtReportsInMain);
+        if(userType.equalsIgnoreCase("Extended Warranty Providers")) {
+            txtServReq.setText("Extended Warranty");
+            txtJobs.setText("Service Request");
+        }
+
         // linearFragment = (LinearLayout)findViewById(R.id.linearLayoutInMain);
     }
 
@@ -92,69 +107,145 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadDashboard(){
-        imgDashboard.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.dashboardsel));
-        imgQuotation.setImageResource(R.drawable.quotation);
-        imgReports.setImageResource(R.drawable.reports);
-        imgJobs.setImageResource(R.drawable.jobs);
-        imgServReq.setImageResource(R.drawable.servicereq);
-        DashboardFragment newFragment = new DashboardFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.linearFragmentInMain, newFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        txtDashboard.setTextColor(ContextCompat.getColor(this, R.color.blue_txt_color));
+        txtQuotation.setTextColor(Color.BLACK);
+        txtReports.setTextColor(Color.BLACK);
+        txtJobs.setTextColor(Color.BLACK);
+        txtServReq.setTextColor(Color.BLACK);
+
+        if(userType.equalsIgnoreCase("Service Centers")) {
+            imgDashboard.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.dashboardsel));
+            imgQuotation.setImageResource(R.drawable.quotation);
+            imgReports.setImageResource(R.drawable.reports);
+            imgJobs.setImageResource(R.drawable.jobs);
+            imgServReq.setImageResource(R.drawable.servicereq);
+            DashboardFragment newFragment = new DashboardFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.linearFragmentInMain, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
+        }else if(userType.equalsIgnoreCase("Extended Warranty Providers")){
+            imgDashboard.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.dashboardsel));
+            imgQuotation.setImageResource(R.drawable.quotation);
+            imgReports.setImageResource(R.drawable.reports);
+            imgJobs.setImageResource(R.drawable.servicereq);
+            imgServReq.setImageResource(R.drawable.ext_warranty);
+        }
     }
 
     public void showServReq(View v){
-        imgDashboard.setImageResource(R.drawable.dashboard);
-        imgQuotation.setImageResource(R.drawable.quotation);
-        imgReports.setImageResource(R.drawable.reports);
-        imgJobs.setImageResource(R.drawable.jobs);
-        imgServReq.setImageResource(R.drawable.servicereqsel);
+        txtDashboard.setTextColor(Color.BLACK);
+        txtQuotation.setTextColor(Color.BLACK);
+        txtReports.setTextColor(Color.BLACK);
+        txtJobs.setTextColor(Color.BLACK);
+        txtServReq.setTextColor(ContextCompat.getColor(this, R.color.blue_txt_color));
+
+        if(userType.equalsIgnoreCase("Service Centers")) {
+            imgDashboard.setImageResource(R.drawable.dashboard);
+            imgQuotation.setImageResource(R.drawable.quotation);
+            imgReports.setImageResource(R.drawable.reports);
+            imgJobs.setImageResource(R.drawable.jobs);
+            imgServReq.setImageResource(R.drawable.servicereqsel);
             ServiceRequestFragment newFragment = new ServiceRequestFragment();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.linearFragmentInMain, newFragment);
             transaction.addToBackStack(null);
             transaction.commit();
 
+        }else if(userType.equalsIgnoreCase("Extended Warranty Providers")){
+            imgDashboard.setImageResource(R.drawable.dashboard);
+            imgQuotation.setImageResource(R.drawable.quotation);
+            imgReports.setImageResource(R.drawable.reports);
+            imgJobs.setImageResource(R.drawable.servicereq);
+            imgServReq.setImageResource(R.drawable.extendedwarrantysel);
+
+        }
+
     }
 
     public void showJobs(View v){
-        imgDashboard.setImageResource(R.drawable.dashboard);
-        imgQuotation.setImageResource(R.drawable.quotation);
-        imgReports.setImageResource(R.drawable.reports);
-        imgJobs.setImageResource(R.drawable.jobssel);
-        imgServReq.setImageResource(R.drawable.servicereq);
-        JobsFragment newFragment = new JobsFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.linearFragmentInMain, newFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        txtDashboard.setTextColor(Color.BLACK);
+        txtQuotation.setTextColor(Color.BLACK);
+        txtReports.setTextColor(Color.BLACK);
+        txtServReq.setTextColor(Color.BLACK);
+        txtJobs.setTextColor(ContextCompat.getColor(this, R.color.blue_txt_color));
+
+        if(userType.equalsIgnoreCase("Service Centers")) {
+            imgDashboard.setImageResource(R.drawable.dashboard);
+            imgQuotation.setImageResource(R.drawable.quotation);
+            imgReports.setImageResource(R.drawable.reports);
+            imgJobs.setImageResource(R.drawable.jobssel);
+            imgServReq.setImageResource(R.drawable.servicereq);
+            JobsFragment newFragment = new JobsFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.linearFragmentInMain, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
+        }else if(userType.equalsIgnoreCase("Extended Warranty Providers")) {
+            imgDashboard.setImageResource(R.drawable.dashboard);
+            imgQuotation.setImageResource(R.drawable.quotation);
+            imgReports.setImageResource(R.drawable.reports);
+            imgJobs.setImageResource(R.drawable.servicereqsel);
+            imgServReq.setImageResource(R.drawable.ext_warranty);
+        }
     }
 
     public void showQuotation(View v){
-        imgDashboard.setImageResource(R.drawable.dashboard);
-        imgQuotation.setImageResource(R.drawable.quotationsel);
-        imgReports.setImageResource(R.drawable.reports);
-        imgJobs.setImageResource(R.drawable.jobs);
-        imgServReq.setImageResource(R.drawable.servicereq);
-        QuotationFragment newFragment = new QuotationFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.linearFragmentInMain, newFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        txtDashboard.setTextColor(Color.BLACK);
+        txtServReq.setTextColor(Color.BLACK);
+        txtReports.setTextColor(Color.BLACK);
+        txtJobs.setTextColor(Color.BLACK);
+        txtQuotation.setTextColor(ContextCompat.getColor(this, R.color.blue_txt_color));
+
+        if(userType.equalsIgnoreCase("Service Centers")) {
+            imgDashboard.setImageResource(R.drawable.dashboard);
+            imgQuotation.setImageResource(R.drawable.quotationsel);
+            imgReports.setImageResource(R.drawable.reports);
+            imgJobs.setImageResource(R.drawable.jobs);
+            imgServReq.setImageResource(R.drawable.servicereq);
+            QuotationFragment newFragment = new QuotationFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.linearFragmentInMain, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
+        }else if(userType.equalsIgnoreCase("Extended Warranty Providers")){
+            imgDashboard.setImageResource(R.drawable.dashboard);
+            imgQuotation.setImageResource(R.drawable.quotationsel);
+            imgReports.setImageResource(R.drawable.reports);
+            imgJobs.setImageResource(R.drawable.servicereq);
+            imgServReq.setImageResource(R.drawable.ext_warranty);
+        }
     }
 
     public void showReports(View v){
-        imgDashboard.setImageResource(R.drawable.dashboard);
-        imgQuotation.setImageResource(R.drawable.quotation);
-        imgReports.setImageResource(R.drawable.reportssel);
-        imgJobs.setImageResource(R.drawable.jobs);
-        imgServReq.setImageResource(R.drawable.servicereq);
-        ReportFragment newFragment = new ReportFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.linearFragmentInMain, newFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        txtDashboard.setTextColor(Color.BLACK);
+        txtQuotation.setTextColor(Color.BLACK);
+        txtServReq.setTextColor(Color.BLACK);
+        txtJobs.setTextColor(Color.BLACK);
+        txtReports.setTextColor(ContextCompat.getColor(this, R.color.blue_txt_color));
+
+        if(userType.equalsIgnoreCase("Service Centers")) {
+            imgDashboard.setImageResource(R.drawable.dashboard);
+            imgQuotation.setImageResource(R.drawable.quotation);
+            imgReports.setImageResource(R.drawable.reportssel);
+            imgJobs.setImageResource(R.drawable.jobs);
+            imgServReq.setImageResource(R.drawable.servicereq);
+            ReportFragment newFragment = new ReportFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.linearFragmentInMain, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
+        }else if(userType.equalsIgnoreCase("Extended Warranty Providers")){
+            imgDashboard.setImageResource(R.drawable.dashboard);
+            imgQuotation.setImageResource(R.drawable.quotation);
+            imgReports.setImageResource(R.drawable.reportssel);
+            imgJobs.setImageResource(R.drawable.servicereq);
+            imgServReq.setImageResource(R.drawable.ext_warranty);
+        }
     }
 
 

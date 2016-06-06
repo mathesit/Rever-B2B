@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="2dp"
         android:layout_above="@+id/linearSeparatorInDashboard">
 
         <ImageView
@@ -25,7 +25,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:text="@string/stock_balance"
-            android:textSize="@dimen/textsize_large"/>
+            android:textSize="@dimen/textsize_normal"/>
         <LinearLayout
             android:id="@+id/linearStockBalTitleInDashboard"
             android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/alert"
-                android:textSize="@dimen/textsize_large"
+                android:textSize="@dimen/textsize_normal"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:layout_weight="0.2"/>
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/product_type"
-                android:textSize="@dimen/textsize_large"
+                android:textSize="@dimen/textsize_normal"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:layout_weight="0.2"/>
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/brand"
-                android:textSize="@dimen/textsize_large"
+                android:textSize="@dimen/textsize_normal"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:layout_weight="0.2"/>
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/model"
-                android:textSize="@dimen/textsize_large"
+                android:textSize="@dimen/textsize_normal"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:layout_weight="0.2"/>
@@ -69,11 +69,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/stock_balance"
-                android:textSize="@dimen/textsize_large"
+                android:textSize="@dimen/textsize_normal"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:layout_weight="0.2"/>
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/linearStockBalTitleInDashboard"/>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -97,7 +103,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:background="#E7E6E4">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -116,7 +125,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:textSize="@dimen/textsize_normal"
+                    android:textSize="@dimen/textsize_large"
                     android:text="@string/pending_quotation"/>
                 <TextView
                     android:id="@+id/txtPendQuotCountInDashboard"
@@ -125,7 +134,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:textSize="@dimen/textsize_large"/>
+                    android:textSize="@dimen/textsize_xlarge"/>
             </LinearLayout>
         </HorizontalScrollView>
         <HorizontalScrollView
@@ -133,7 +142,11 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1"
-            android:layout_margin="2dp"
+
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+
             android:background="#E7E6E4">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -152,7 +165,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:textSize="@dimen/textsize_normal"
+                    android:textSize="@dimen/textsize_large"
                     android:text="@string/tot_serv_req"/>
                 <TextView
                     android:id="@+id/txtServReqCountInDashboard"
@@ -161,7 +174,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:textSize="@dimen/textsize_large"/>
+                    android:textSize="@dimen/textsize_xlarge"/>
             </LinearLayout>
         </HorizontalScrollView>
         <HorizontalScrollView
@@ -169,7 +182,9 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1"
-            android:layout_margin="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:background="#E7E6E4">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -188,7 +203,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:textSize="@dimen/textsize_normal"
+                    android:textSize="@dimen/textsize_large"
                     android:text="@string/case_logs"/>
                 <TextView
                     android:id="@+id/txtCaseLogsCountInDashboard"
@@ -197,7 +212,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:textSize="@dimen/textsize_large"/>
+                    android:textSize="@dimen/textsize_xlarge"/>
             </LinearLayout>
         </HorizontalScrollView>
     </LinearLayout>
@@ -224,29 +239,38 @@
                     android:layout_weight="1"
                     android:text="@string/brand"
                     android:gravity="center"
-                    android:textSize="@dimen/textsize_large"/>
+                    android:textColor="@color/blue_txt_color"
+                    android:textSize="@dimen/textsize_normal"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/model"
+                    android:textColor="@color/blue_txt_color"
                     android:gravity="center"
-                    android:textSize="@dimen/textsize_large"/>
+                    android:textSize="@dimen/textsize_normal"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/product_type"
+                    android:textColor="@color/blue_txt_color"
                     android:gravity="center"
-                    android:textSize="@dimen/textsize_large"/>
+                    android:textSize="@dimen/textsize_normal"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/failures"
+                    android:textColor="@color/blue_txt_color"
                     android:gravity="center"
-                    android:textSize="@dimen/textsize_large"/>
+                    android:textSize="@dimen/textsize_normal"/>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray"/>
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

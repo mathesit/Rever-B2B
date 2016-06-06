@@ -4,9 +4,14 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
-    <dimen name="textsize_normal">16sp</dimen>
-    <dimen name="textsize_large">19sp</dimen>
+    <dimen name="textsize_normal">15sp</dimen>
+    <dimen name="textsize_large">17sp</dimen>
     <dimen name="textsize_xlarge">21sp</dimen>
+
+    <dimen name="textsize_normal_less">14sp</dimen>
+    <dimen name="textsize_large_less">16sp</dimen>
+    <dimen name="textsize_xlarge_less">19sp</dimen>
+
     <dimen name="titlebar_normal">50dp</dimen>
     <dimen name="titlebar_large">70dp</dimen>
     <dimen name="titlebar_xlarge">90dp</dimen>

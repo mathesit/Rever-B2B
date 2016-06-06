@@ -25,6 +25,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class NetUtils {
     public static final String HOST = "http://54.179.167.160:8080/Yarraa/";
     public static final String PAYMENT_API_URL = "http://staging.2mpayment.com/CCPG/WebServicePayment";
+
     public static final String STOCK_URL = "service-centers/stockBalance";
     public static final String SERV_REQ_URL = "service-centers/srcount";
     public static final String CASE_LOG_URL = "service-centers/caselogcount";
@@ -40,8 +41,6 @@ public class NetUtils {
     public static final String BRANDS = "brands", SERVICE_CENTER_SEARCH="service-centers/search";
     public static final String CURRENCIES="currencies", WARRANTIES="warranties", PRODUCTS = "products";
     public static  final String apiKey="AIzaSyBIVyxKDbvFBFem7EwRWuIc3-ojUsYz9es";
-
-
 
     public static boolean hasNetwork(Context context) {
         ConnectivityManager connMgr = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -198,5 +197,4 @@ public class NetUtils {
         }
         return result.toString();
     }
-
 }

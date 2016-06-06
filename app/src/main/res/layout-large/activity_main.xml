@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="30dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -32,9 +32,9 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:id="@+id/linear1InMain"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_width="115dp"
+                        android:layout_height="115dp"
+                        android:layout_marginTop="15dp"
                         android:layout_alignParentRight="true"
                         android:orientation="vertical"
                         android:gravity="center"
@@ -42,106 +42,111 @@
                         android:onClick="showDashboard">
                         <ImageView
                             android:id="@+id/imgDashboardInMain"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/dashboard"/>
                         <TextView
+                            android:id="@+id/txtDashboardInMain"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/dashboard"
-                            android:textSize="@dimen/textsize_normal"
+                            android:textSize="@dimen/textsize_normal_less"
                             android:gravity="top|center_horizontal"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/linear2InMain"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
+                        android:layout_width="115dp"
+                        android:layout_height="115dp"
                         android:layout_alignParentRight="true"
                         android:layout_below="@+id/linear1InMain"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:onClick="showServReq"
                         android:background="@drawable/menubg">
                         <ImageView
                             android:id="@+id/imgServReqInMain"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/servicereq"/>
                         <TextView
+                            android:id="@+id/txtServReqInMain"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/service_request"
-                            android:textSize="@dimen/textsize_normal"
+                            android:textSize="@dimen/textsize_normal_less"
                             android:gravity="top|center_horizontal"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/linear3InMain"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
+                        android:layout_width="115dp"
+                        android:layout_height="115dp"
                         android:layout_alignParentRight="true"
                         android:layout_below="@+id/linear2InMain"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:onClick="showJobs"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="@drawable/menubg">
                         <ImageView
                             android:id="@+id/imgJobsInMain"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/jobs"/>
                         <TextView
+                            android:id="@+id/txtJobsInMain"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/jobs"
-                            android:textSize="@dimen/textsize_normal"
+                            android:textSize="@dimen/textsize_normal_less"
                             android:gravity="top|center_horizontal"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/linear4InMain"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
+                        android:layout_width="115dp"
+                        android:layout_height="115dp"
                         android:layout_alignParentRight="true"
                         android:layout_below="@+id/linear3InMain"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:onClick="showQuotation"
                         android:background="@drawable/menubg">
                         <ImageView
                             android:id="@+id/imgQuotationsInMain"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/quotation"/>
                         <TextView
+                            android:id="@+id/txtQuotationsInMain"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/quotations"
-                            android:textSize="@dimen/textsize_normal"
+                            android:textSize="@dimen/textsize_normal_less"
                             android:gravity="top|center_horizontal"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/linear5InMain"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
+                        android:layout_width="115dp"
+                        android:layout_height="115dp"
                         android:layout_alignParentRight="true"
                         android:layout_below="@+id/linear4InMain"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:onClick="showReports"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="@drawable/menubg">
                         <ImageView
                             android:id="@+id/imgReportsInMain"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/reports"/>
                         <TextView
+                            android:id="@+id/txtReportsInMain"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/reports"
-                            android:textSize="@dimen/textsize_normal"
+                            android:textSize="@dimen/textsize_normal_less"
                             android:gravity="top|center_horizontal"/>
                     </LinearLayout>
                 </RelativeLayout>
@@ -152,7 +157,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="0.13">
+            android:layout_weight="0.13"
+            android:layout_marginTop="15dp">
         </LinearLayout>
 
     </LinearLayout>

@@ -100,6 +100,7 @@ public class MasterCache {
             failureModel.add(b.getFailureModel());
             failureCount.add(b.getFailureCount());
             failureProdType.add(b.getFailureProdType());
+
         }
     }
 

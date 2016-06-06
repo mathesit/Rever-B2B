@@ -1,5 +1,7 @@
 package com.rever.rever_b2b.model;
 
+import android.util.Log;
+
 /**
  * Created by Matheswari on 3/25/2016.
  */
@@ -9,6 +11,7 @@ public class StockBalance {
     private String stockModel, stockProdType, stockBrand;
 
     public StockBalance(String brand, String model, String prodType, int stock){
+        Log.i("myLog","Stock bal resp:"+ brand+"  "+model+"  "+prodType+"  "+stock);
         this.stockBrand = brand;
         this.stockModel = model;
         this.stockProdType = prodType;
