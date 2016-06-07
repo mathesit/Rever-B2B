@@ -12,4 +12,10 @@
     <color name="titlebar_background">#F7F7F7</color>
     <color name="line_color">#C8C7CC</color>
     <color name="blue_txt_color">#347EA0</color>
+
+    <color name="colorgrey">#E4E4E4</color>
+    <color name="colorwhite">#FFFFFF</color>
+    <color name="colorblack">#000000</color>
+    <color name="colorblue">#3989AF</color>
+
 </resources>

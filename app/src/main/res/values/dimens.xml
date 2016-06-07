@@ -10,7 +10,7 @@
 
     <dimen name="textsize_normal_less">14sp</dimen>
     <dimen name="textsize_large_less">16sp</dimen>
-    <dimen name="textsize_xlarge_less">19sp</dimen>
+    <dimen name="textsize_xlarge_less">20sp</dimen>
 
     <dimen name="titlebar_normal">50dp</dimen>
     <dimen name="titlebar_large">70dp</dimen>

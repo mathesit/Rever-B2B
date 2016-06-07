@@ -5,9 +5,12 @@ import com.rever.rever_b2b.model.CaseLog;
 import com.rever.rever_b2b.model.Failures;
 import com.rever.rever_b2b.model.Quotation;
 import com.rever.rever_b2b.model.ServiceRequest;
+import com.rever.rever_b2b.model.ServiceRequestList;
 import com.rever.rever_b2b.model.StockBalance;
 import com.rever.rever_b2b.model.UsedProduct;
 import com.rever.rever_b2b.model.User;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,6 +52,10 @@ public class MasterCache {
     public static List<UsedProduct> usedProductList = new ArrayList<>();
     public static List<Integer> usedProdQty = new ArrayList<>(), usedProdRank = new ArrayList<>();
     public static List<String> usedProdPartNo = new ArrayList<>();
+
+
+    public static List<ServiceRequestList> serviceReqList = new ArrayList<>();
+    public static List<String> srId = new ArrayList<>(), srNo = new ArrayList<>(), srStatus = new ArrayList<>(), srConsumerName = new ArrayList<>(), srCreatedOn = new ArrayList<>();
 
 
 
@@ -137,7 +144,15 @@ public class MasterCache {
             usedProdQty.add(b.getQuantity());
             usedProdRank.add(b.getRank());
             usedProdPartNo.add(b.getPartNo());
+        }
+    }
 
+    public static void saveServiceRequestListCache(JSONObject jsonRes) {
+        serviceReqList = JsonUtils.parseServiceRequestListJson(jsonRes);
+        srId.clear(); srNo.clear(); srStatus.clear(); srConsumerName.clear(); srCreatedOn.clear();
+        for(ServiceRequestList b : serviceReqList) {
+            srId.add(b.getSrId()); srNo.add(b.getSrNo()); srStatus.add(b.getStatus());
+            srCreatedOn.add(b.getCreated_on()); srConsumerName.add(b.getConsumer_name());
         }
     }
 

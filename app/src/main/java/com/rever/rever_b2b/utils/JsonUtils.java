@@ -5,11 +5,13 @@ import com.rever.rever_b2b.model.CaseLog;
 import com.rever.rever_b2b.model.Failures;
 import com.rever.rever_b2b.model.Quotation;
 import com.rever.rever_b2b.model.ServiceRequest;
+import com.rever.rever_b2b.model.ServiceRequestList;
 import com.rever.rever_b2b.model.StockBalance;
 import com.rever.rever_b2b.model.UsedProduct;
 import com.rever.rever_b2b.model.User;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -84,6 +86,28 @@ public class JsonUtils {
             e.printStackTrace();
         }
         return srCount;
+    }
+
+    public static List<ServiceRequestList> parseServiceRequestListJson(JSONObject json) {
+        List<ServiceRequestList> srList = new ArrayList<>();
+            try {
+                JSONArray array = json.getJSONArray("EW");
+                int size= array.length();
+                for(int index = 0 ; index < size; index++) {
+                    JSONObject jObj = array.getJSONObject(index);
+                    String sr_id = jObj.getString("sr_id"),
+                            sr_no = jObj.getString("sr_no"),
+                            status = jObj.getString("status"),
+                            createdOn = jObj.getString("created_on"),
+                            consumerName = jObj.getString("consumer_name");
+                    srList.add(new ServiceRequestList(sr_id, sr_no, status, createdOn, consumerName));
+                    System.out.println("sr_id: " + sr_id + " sr_no: " + sr_no+" status:"+status+"  createdOn:"+createdOn+"  consumer:"+consumerName);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        return srList;
     }
 
     public static List<Failures> parseFailuresJson(String json) {

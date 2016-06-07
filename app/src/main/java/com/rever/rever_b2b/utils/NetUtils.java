@@ -31,7 +31,11 @@ public class NetUtils {
     public static final String CASE_LOG_URL = "service-centers/caselogcount";
     public static final String TOP_FAILURE_URL = "sr/topFailures";
     public static final String TOP5_PROD_URL = "service-centers/top5usedproducts";
-    public static final String PENDING_QUOT_URL = "quotations/pendingcount/";
+    public static final String PENDING_QUOT_URL = "quotations/pendingcount";
+
+    public static final String SR_LIST = "sr/list";
+    public static final String SR_INFO = "sr/details/%s";
+    public static final String PRODUCT_INFO = "sr/product/%s";
 
     public static final String LOGIN_URL = "users/login";
     public static final String RESET_URL ="users/reset";
