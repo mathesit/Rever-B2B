@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorgrey"
+    android:paddingLeft="15dp"
+    android:paddingRight="10dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/model_name"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:text="Model Name"
+        android:textColor="@color/colorblack"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/product_type"
+        android:drawableLeft="@drawable/producticon"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:text="  Product Type"
+        android:textColor="@color/colorblack"
+        />
+    <TextView
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:drawableLeft="@drawable/serial_no_icon"
+        android:drawablePadding="5dp"
+        android:layout_height="40dp"
+        android:id="@+id/serial_no"
+        android:text="  Serial No"
+        android:textColor="@color/colorblack"
+        />
+    <TextView
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/usericon"
+        android:drawablePadding="5dp"
+        android:id="@+id/consumer_name"
+        android:text="  Consumer Name"
+        android:textColor="@color/colorblack"
+        />
+
+</LinearLayout>

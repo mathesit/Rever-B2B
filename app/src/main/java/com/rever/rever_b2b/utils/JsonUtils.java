@@ -91,7 +91,7 @@ public class JsonUtils {
     public static List<ServiceRequestList> parseServiceRequestListJson(JSONObject json) {
         List<ServiceRequestList> srList = new ArrayList<>();
             try {
-                JSONArray array = json.getJSONArray("EW");
+                JSONArray array = json.getJSONArray("SR");
                 int size= array.length();
                 for(int index = 0 ; index < size; index++) {
                     JSONObject jObj = array.getJSONObject(index);

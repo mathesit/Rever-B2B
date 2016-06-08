@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorgrey">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.75">
+            <TextView
+                android:id="@+id/txtAddNewInServReq"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="+ ADD NEW"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textsize_xlarge"
+                android:gravity="center"
+                android:background="@color/colorblue"/>
+            <EditText
+                android:id="@+id/edtSearchInServReq"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/search"/>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/listInServReq"
+                android:dividerHeight="1dp"
+                android:divider="@android:color/darker_gray">
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:background="@android:color/darker_gray">
+                <TextView
+                    android:id="@+id/txtServReqDetInServReq"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/serviceRequestDetails"
+                    android:textSize="@dimen/textsize_large"
+                    android:layout_margin="1dp"/>
+                <TextView
+                    android:id="@+id/txtProdDetInServReq"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/textsize_large"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:text="@string/productDetails"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="1dp"
+                android:id="@+id/linearDetailInServReq">
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

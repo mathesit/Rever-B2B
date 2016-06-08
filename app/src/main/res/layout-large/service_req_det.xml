@@ -13,29 +13,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@color/titlebar_background">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="1">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="@string/serviceRequestDetails"
-                android:gravity="center"
-                android:textSize="@dimen/textsize_normal"
-                android:layout_weight="0.5"
-                android:background="@android:color/white"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="@string/productDetails"
-                android:gravity="center"
-                android:layout_weight="0.5"
-                android:textSize="@dimen/textsize_normal"
-                android:background="@color/colorgrey"/>
-        </LinearLayout>
-
 
             <LinearLayout
                 android:orientation="vertical"
