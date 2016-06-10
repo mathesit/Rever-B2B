@@ -20,11 +20,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
@@ -38,9 +33,6 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.rever.rever_b2b.R;
 import com.rever.rever_b2b.utils.MasterCache;
 import com.rever.rever_b2b.utils.NetUtils;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -62,7 +54,7 @@ public class DashboardFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
         initViews();
         initParams();
-        getFailureData();
+
         new GetStockBalTask().execute("Stock");
         new GetStockBalTask().execute("CaseLog");
         new GetStockBalTask().execute("Failures");
@@ -226,39 +218,29 @@ public class DashboardFragment extends Fragment {
             img.setImageResource(R.drawable.alert);
           //  rel.addView(img, alertParam);
             tr.addView(rel, stockParam);
-            Log.i("myLog", "alert");
-
             TextView txtProdType = new TextView(getActivity());
             txtProdType.setText(MasterCache.stockProdType.get(start));
             txtProdType.setGravity(Gravity.CENTER);
-            //txtProdType.setTextColor(Color.BLACK);
-          //  txtProdType.setTextSize(R.dimen.textsize_normal);
             tr.addView(txtProdType, stockParam);
-            Log.i("myLog", "prodtype:" + MasterCache.stockProdType.get(start) + "  " + txtProdType.getText().toString());
             TextView txtBrand = new TextView(getActivity());
             txtBrand.setText(MasterCache.stockBrand.get(start));
             txtBrand.setGravity(Gravity.CENTER);
             tr.addView(txtBrand, stockParam);
-            Log.i("myLog", "brand:" + MasterCache.stockBrand.get(start));
             TextView txtModel = new TextView(getActivity());
             txtModel.setText(MasterCache.stockModel.get(start));
             txtModel.setGravity(Gravity.CENTER);
             tr.addView(txtModel, stockParam);
-            Log.i("myLog", "model:" + MasterCache.stockModel.get(start));
             TextView txtStockBal= new TextView(getActivity());
-            Log.i("myLog", "count:" + MasterCache.stockCount.get(start));
             txtStockBal.setText(String.valueOf(MasterCache.stockCount.get(start)));
-            Log.i("myLog", "after adding stockbal count:" + txtStockBal.getText().toString());
             txtStockBal.setGravity(Gravity.CENTER);
             tr.addView(txtStockBal, stockParam);
             View v = new View(getActivity());
             v.setBackgroundColor(Color.LTGRAY);
             TableRow trLine = new TableRow(getActivity());
             trLine.addView(v, stockLineParam);
-
             tblStockBal.addView(tr);
             tblStockBal.addView(trLine);
-            Log.i("myLog", "after add to tbl");
+
         }
     }
 
@@ -280,15 +262,10 @@ public class DashboardFragment extends Fragment {
             TextView txtProdType = new TextView(getActivity());
             txtProdType.setText(MasterCache.failureProdType.get(start));
             txtProdType.setGravity(Gravity.CENTER);
-          //  txtProdType.setTextSize(R.dimen.textsize_normal);
             tr.addView(txtProdType, failureParam);
-            Log.i("myLog","b4 adding count");
             TextView txtCount = new TextView(getActivity());
-            Log.i("myLog", "MasterCache.failureCount.get(start):" + MasterCache.failureCount.get(start));
             txtCount.setText(String.valueOf(MasterCache.failureCount.get(start)));
-            Log.i("myLog", "after adding count:" + txtCount.getText().toString());
             txtCount.setGravity(Gravity.CENTER);
-            //txtCount.setTextSize(R.dimen.textsize_normal);
             tr.addView(txtCount, failureParam);
             View v = new View(getActivity());
             v.setBackgroundColor(Color.LTGRAY);
@@ -299,19 +276,6 @@ public class DashboardFragment extends Fragment {
         }
     }
 
-    public void displayReport(){
-        int size = MasterCache.usedProductList.size();
-        if(size>=5){
-            size=5;
-        }
-        for(int start=0; start<size; start++){
-            int qty = MasterCache.usedProdQty.get(start);
-            int rank = MasterCache.usedProdRank.get(start);
-            String partNo = MasterCache.usedProdPartNo.get(start);
-
-        }
-
-    }
 
     private void displayLineGraph() {
         linearGraph.removeAllViews();
@@ -321,31 +285,23 @@ public class DashboardFragment extends Fragment {
 
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-      //  xAxis.setTypeface(controller.tfRobotoCondensedLight);
         xAxis.setDrawGridLines(true);
         xAxis.setDrawAxisLine(true);
         xAxis.setTextSize(13);
         xAxis.setAxisLineWidth(1);
-      //  xAxis.setAxisLineColor(Color.BLACK);
 
         YAxis leftAxis = chart.getAxisLeft();
-      //  leftAxis.setTypeface(controller.tfRobotoCondensedLight);
         leftAxis.setLabelCount(5, true);
         leftAxis.setDrawGridLines(true);
         leftAxis.setTextSize(13);
         leftAxis.setAxisLineWidth(1);
-        //leftAxis.setAxisLineColor(Color.BLACK);
 
         YAxis rightAxis = chart.getAxisRight();
-     //   rightAxis.setTypeface(controller.tfRobotoCondensedLight);
         rightAxis.setLabelCount(5, true);
         rightAxis.setDrawAxisLine(true);
         rightAxis.setAxisLineWidth(1);
         rightAxis.setDrawLabels(false);
         rightAxis.setDrawGridLines(true);
-        //rightAxis.setAxisLineColor(Color.BLACK);
-
-        // set data
         chart.setData(generateDataLine());
         chart.animateX(750);
 
@@ -356,8 +312,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
                 Log.i("myLog","line chart Value selected at "+dataSetIndex+"  "+e.getVal()+" h:"+e.getXIndex());
-                int index=e.getXIndex();
-             //   displayGraph(index);
+
             }
 
             @Override
@@ -366,7 +321,6 @@ public class DashboardFragment extends Fragment {
             }
         });
     }
-
 
     private LineData generateDataLine() {
         int cnt = MasterCache.usedProdQty.size();
@@ -388,34 +342,5 @@ public class DashboardFragment extends Fragment {
         sets.add(d1);
        return new LineData(MasterCache.usedProdPartNo, sets);
 
-    }
-
-
-    public void getFailureData(){
-        String url = "http://httpbin.org/get?site=code&network=tutsplus";
-
-        JsonObjectRequest jsonRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        // the response is already constructed as a JSONObject!
-                        try {
-                            response = response.getJSONObject("args");
-                            String site = response.getString("site"),
-                                    network = response.getString("network");
-                            System.out.println("Site: "+site+"\nNetwork: "+network);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                    }
-                });
-
-        Volley.newRequestQueue(getActivity()).add(jsonRequest);
     }
 }

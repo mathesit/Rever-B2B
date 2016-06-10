@@ -5,6 +5,7 @@ import com.rever.rever_b2b.model.CaseLog;
 import com.rever.rever_b2b.model.Failures;
 import com.rever.rever_b2b.model.Quotation;
 import com.rever.rever_b2b.model.ServiceRequest;
+import com.rever.rever_b2b.model.ServiceRequestDetails;
 import com.rever.rever_b2b.model.ServiceRequestList;
 import com.rever.rever_b2b.model.StockBalance;
 import com.rever.rever_b2b.model.UsedProduct;
@@ -53,11 +54,18 @@ public class MasterCache {
     public static List<Integer> usedProdQty = new ArrayList<>(), usedProdRank = new ArrayList<>();
     public static List<String> usedProdPartNo = new ArrayList<>();
 
-
     public static List<ServiceRequestList> serviceReqList = new ArrayList<>();
     public static List<String> srId = new ArrayList<>(), srNo = new ArrayList<>(), srStatus = new ArrayList<>(), srConsumerName = new ArrayList<>(), srCreatedOn = new ArrayList<>();
 
-
+    public static List<String> srDetSrId= new ArrayList<>(), srDetSrNo =new ArrayList<>(), srDetStatus = new ArrayList<>(),
+            srDetCreatedOn = new ArrayList<>(), srDetWarrStatus = new ArrayList<>(), srDetRetCount = new ArrayList<>(),
+            srDetUserId = new ArrayList<>(), srDetFirstName = new ArrayList<>(), srDetLastName = new ArrayList<>(),
+            srDetCity= new ArrayList<>(), srDetCountryCode = new ArrayList<>(), srDetMobile = new ArrayList<>(),
+            srDetIcNo = new ArrayList<>(), srDetAddrLine1= new ArrayList<>(), srDetState = new ArrayList<>(),
+            srDetPostalCode = new ArrayList<>(), srDetOtherDesc= new ArrayList<>(), srDetRemarks = new ArrayList<>(),
+            srDetProductStatus = new ArrayList<>(), srDetCompanyName = new ArrayList<>(), srDetBrandName = new ArrayList<>(),
+            srDetModelName = new ArrayList<>(), srDetSerialNo = new ArrayList<>(), srDetProdType = new ArrayList<>(),
+            srDetEwCount = new ArrayList<>(), srDetFailureDesc = new ArrayList<>(), srDetCreatedBy = new ArrayList<>();
 
     public static void saveUserCache(String userJson) {
         userList = JsonUtils.parseUserJson(userJson);
@@ -154,6 +162,32 @@ public class MasterCache {
             srId.add(b.getSrId()); srNo.add(b.getSrNo()); srStatus.add(b.getStatus());
             srCreatedOn.add(b.getCreated_on()); srConsumerName.add(b.getConsumer_name());
         }
+    }
+
+    public static void saveServiceRequestDetailCache(JSONObject jsonRes) {
+        ServiceRequestDetails serviceReqDet = JsonUtils.parseServiceRequestDetail(jsonRes);
+        srDetSrId.clear(); srDetSrNo.clear(); srDetStatus.clear(); srDetCreatedOn.clear(); srDetFailureDesc.clear();
+        srDetCreatedBy.clear(); srDetWarrStatus.clear(); srDetRetCount.clear(); srDetUserId.clear(); srDetFirstName.clear();
+        srDetLastName.clear(); srDetCity.clear(); srDetCountryCode.clear(); srDetMobile.clear(); srDetIcNo.clear();
+        srDetAddrLine1.clear(); srDetState.clear(); srDetPostalCode.clear(); srDetOtherDesc.clear(); srDetRemarks.clear();
+        srDetProductStatus.clear(); srDetCompanyName.clear(); srDetBrandName.clear(); srDetModelName.clear();
+        srDetSerialNo.clear(); srDetProdType.clear(); srDetEwCount.clear();
+        //  for(ServiceRequestList b : serviceReqList) {
+            srDetSrId.add(serviceReqDet.getSr_id()); srDetSrNo.add(serviceReqDet.getSr_no());
+            srDetStatus.add(serviceReqDet.getStatus()); srDetCreatedOn.add(serviceReqDet.getCreated_on());
+            srDetFailureDesc.add(serviceReqDet.getFailure_desc()); srDetCreatedBy.add(serviceReqDet.getCreated_by());
+            srDetWarrStatus.add(serviceReqDet.getWarranty_status()); srDetRetCount.add(serviceReqDet.getReturn_count());
+            srDetUserId.add(serviceReqDet.getUser_id()); srDetFirstName.add(serviceReqDet.getFirst_name());
+            srDetLastName.add(serviceReqDet.getLast_name()); srDetCity.add(serviceReqDet.getCity());
+            srDetCountryCode.add(serviceReqDet.getCountry_code()); srDetMobile.add(serviceReqDet.getMobile());
+            srDetIcNo.add(serviceReqDet.getIc_no()); srDetAddrLine1.add(serviceReqDet.getAddress_line1());
+            srDetState.add(serviceReqDet.getState()); srDetPostalCode.add(serviceReqDet.getPostal_code());
+            srDetOtherDesc.add(serviceReqDet.getOther_desc()); srDetRemarks.add(serviceReqDet.getRemarks());
+            srDetProductStatus.add(serviceReqDet.getProduct_status()); srDetCompanyName.add(serviceReqDet.getCompany_name());
+            srDetBrandName.add(serviceReqDet.getBrand_name()); srDetModelName.add(serviceReqDet.getModel_name());
+            srDetSerialNo.add(serviceReqDet.getSerial_no()); srDetProdType.add(serviceReqDet.getProduct_type());
+            srDetEwCount.add(serviceReqDet.getEw_count());
+        // }
     }
 
 }

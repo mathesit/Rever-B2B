@@ -5,45 +5,48 @@
     android:background="@color/colorgrey"
     android:paddingLeft="15dp"
     android:paddingRight="10dp">
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:id="@+id/model_name"
-        android:textSize="20dp"
+        android:textSize="@dimen/textsize_xlarge"
         android:textStyle="bold"
         android:gravity="center_vertical"
         android:text="Model Name"
-        android:textColor="@color/colorblack"
-        />
+        android:textColor="@color/colorblack" />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:id="@+id/product_type"
         android:drawableLeft="@drawable/producticon"
         android:drawablePadding="5dp"
+        android:textSize="@dimen/textsize_large_less"
         android:gravity="center_vertical"
         android:text="  Product Type"
-        android:textColor="@color/colorblack"
-        />
+        android:textColor="@color/colorblack"/>
+
     <TextView
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:drawableLeft="@drawable/serial_no_icon"
         android:drawablePadding="5dp"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:id="@+id/serial_no"
+        android:textSize="@dimen/textsize_large_less"
         android:text="  Serial No"
-        android:textColor="@color/colorblack"
-        />
+        android:textColor="@color/colorblack"/>
+
     <TextView
         android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:drawableLeft="@drawable/usericon"
         android:drawablePadding="5dp"
+        android:textSize="@dimen/textsize_large_less"
         android:id="@+id/consumer_name"
         android:text="  Consumer Name"
-        android:textColor="@color/colorblack"
-        />
+        android:textColor="@color/colorblack"/>
 
 </LinearLayout>
